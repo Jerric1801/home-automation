@@ -8,6 +8,7 @@ import os
 USERNAME = os.getenv("USERNAME")
 PASSWORD = os.getenv("PASSWORD")
 DEVICE_URL = os.getenv("DEVICE_URL")
+DEVICE_NAME = os.getenv("DEVICE_NAME")
 
 # API Endpoints
 LOGIN_URL = f"https://{DEVICE_URL}/enduser-mobile-web/enduserAPI/login"
@@ -86,11 +87,11 @@ def main():
             print(f"Device: {device['label']}, URL: {device['deviceURL']}")
             
             # Example: Open the blinds for 5 seconds and then stop
-            if "Ziptrak" in device["label"]:  # Replace with your device condition
+            if DEVICE_NAME in device["label"]:  
                 device_id = device["deviceURL"]
 
                 # Open the blinds
-                send_command(session_id, device_id, "open")
+                send_command(session_id, device_id, "close")
 
 
     except Exception as e:
