@@ -9,7 +9,7 @@ class WeatherAPI:
 
     def get_weather_forecast(self):
         """Get the hyperlocal weather forecast using latitude and longitude."""
-        url = f"{self.base_url}?lat={self.latitude}&lon={self.longitude}&appid={self.api_key}&units=metric" # Added units=metric
+        url = f"{self.base_url}?lat={self.latitude}&lon={self.longitude}&appid={self.api_key}&units=metric" 
         response = requests.get(url)
         if response.status_code == 200:
             return response.json()
